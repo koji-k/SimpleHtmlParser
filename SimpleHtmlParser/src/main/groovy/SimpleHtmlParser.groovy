@@ -25,7 +25,6 @@ class SimpleHtmlParser {
 			if(process){
 				counter += countStartTag(line) - countEndTag(line)
 				sb.append("${line}\n")
-
 				// 開始タグに対応する終了タグを検知
 				if ( counter == 0 ){
 					process = false

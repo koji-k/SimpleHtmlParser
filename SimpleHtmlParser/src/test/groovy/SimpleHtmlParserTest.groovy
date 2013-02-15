@@ -29,9 +29,9 @@ class SimpleHtmlParserTest extends GroovyTestCase{
 		def dev2 = parseResult.get(1)
 		def dev3 = parseResult.get(2)
 		assert dev1.@class == """target"""
-				assert dev1.p.text() == """data1"""
+		assert dev1.p.text() == """data1"""
 		assert dev2.p.text() == """data2"""
-				assert dev3.p.text() == """data3"""
+		assert dev3.p.text() == """data3"""
 	}
 	
 	void testParseToGpathResultWithClosure(){
