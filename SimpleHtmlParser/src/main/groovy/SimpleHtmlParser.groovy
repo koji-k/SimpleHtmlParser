@@ -6,6 +6,7 @@ class SimpleHtmlParser {
 	def SimpleHtmlParser(List data){
 		html = data
 	}
+	
 	def SimpleHtmlParser(String data){
 		this(data.readLines())
 	}
@@ -49,14 +50,11 @@ class SimpleHtmlParser {
 	}
 	
 	// set first tag from target tag
-	// Z.b.
+	// for example:
 	// <div class="a"> ---> div
 	// <div> ---> div
 	// <div /> ---> div
 	def setTagType(String targetTag){
-		//def match = (targetTag =~ /<([a-zA-Z]+)( .*>|>)/)
-		//def match = (targetTag =~ /<([a-zA-Z]+)(\s*.*)>/)
-		//def match = (targetTag =~ /<([a-zA-Z]+)([^>]*)>/)
 		def match = (targetTag =~ /<([a-zA-Z]+)([^>]*)>.*/)
 		if (match.matches()){
 			tagType = match[0][1]
@@ -65,12 +63,10 @@ class SimpleHtmlParser {
 	}
 
 	def countStartTag(String line){
-		//line.findAll(~/<div/).size()
 		line.findAll(~/<${tagType}/).size()
 	}
 
 	def countEndTag(String line){
-		//line.findAll(~/<\/div/).size()
 		line.findAll(~/<\/${tagType}>/).size()
 	}
 }

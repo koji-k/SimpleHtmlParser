@@ -1,5 +1,7 @@
 import groovy.util.GroovyTestCase
+
 class SimpleHtmlParserTest extends GroovyTestCase{
+	
 	def html = '''
             <div class="dust">
             </br >
